@@ -13,10 +13,10 @@ Class affetta_seo extends CModule
 
     public function __construct()
     {
-        if(file_exists(__DIR__."/version.php")) {
+        if(file_exists(__DIR__ . "/version.php")) {
             $arModuleVersion = array();
 
-            include_once(__DIR__."/version.php");
+            include_once(__DIR__ . "/version.php");
 
             $this->MODULE_ID = "affetta.seo";
             $this->MODULE_VERSION = $arModuleVersion["VERSION"];
@@ -112,20 +112,20 @@ Class affetta_seo extends CModule
             else
             {
                 $id = $result->getId();
-                $this->addUserField($id, 'UF_ACTIVE', 'Активность', 'N', 'boolean');
-                $this->addUserField($id, 'UF_XML_ID', 'Внешний код', 'N');
-                $this->addUserField($id, 'UF_H1', 'H1', 'Y');
-                $this->addUserField($id, 'UF_URL', 'URL', 'Y');
-                $this->addUserField($id, 'UF_REDIRECT', 'Редирект ','N');
-                $this->addUserField($id, 'UF_TITLE', 'Title','N');
-                $this->addUserField($id, 'UF_DESCRIPTION', 'Description','N');
-                $this->addUserField($id, 'UF_KEYWORDS', 'Keywords','N');
-                $this->addUserField($id, 'UF_PATH', 'Пункт в навигационной цепочке','N');
-                $this->addUserField($id, 'UF_BOTTOM_TEXT', 'Seo текст','N','customhtml');
-                $this->addUserField($id, 'UF_TOP_TAGS', 'Верхнее тегирование','N','customhtml');
-                $this->addUserField($id, 'UF_BOTTOM_TAGS', 'Нижнее тегирование','N','customhtml');
-                $this->addUserField($id, 'UF_GROUP', 'Группа для фильтрации','Y');
-                $this->addUserField($id, 'UF_MAP', 'Добавить в sitemap', 'N', 'boolean');
+                $this->addUserField($id, 'UF_ACTIVE', Loc::GetMessage("AFFETTA_SEO_HL_ACTIVE"), 'N', 'boolean');
+                $this->addUserField($id, 'UF_XML_ID', Loc::GetMessage("AFFETTA_SEO_HL_XML_ID"), 'N');
+                $this->addUserField($id, 'UF_H1', Loc::GetMessage("AFFETTA_SEO_HL_H1"), 'Y');
+                $this->addUserField($id, 'UF_URL', Loc::GetMessage("AFFETTA_SEO_HL_URL"), 'Y');
+                $this->addUserField($id, 'UF_REDIRECT', Loc::GetMessage("AFFETTA_SEO_HL_REDIRECT"),'N');
+                $this->addUserField($id, 'UF_TITLE', Loc::GetMessage("AFFETTA_SEO_HL_TITLE"),'N');
+                $this->addUserField($id, 'UF_DESCRIPTION', Loc::GetMessage("AFFETTA_SEO_HL_DESCRIPTION"),'N');
+                $this->addUserField($id, 'UF_KEYWORDS', Loc::GetMessage("AFFETTA_SEO_HL_KEYWORDS"),'N');
+                $this->addUserField($id, 'UF_PATH', Loc::GetMessage("AFFETTA_SEO_HL_PATH"),'N');
+                $this->addUserField($id, 'UF_BOTTOM_TEXT', Loc::GetMessage("AFFETTA_SEO_HL_BOTTOM_TEXT"),'N','customhtml');
+                $this->addUserField($id, 'UF_TOP_TAGS', Loc::GetMessage("AFFETTA_SEO_HL_TOP_TAGS"),'N','customhtml');
+                $this->addUserField($id, 'UF_BOTTOM_TAGS', Loc::GetMessage("AFFETTA_SEO_HL_BOTTOM_TAGS"),'N','customhtml');
+                $this->addUserField($id, 'UF_GROUP', Loc::GetMessage("AFFETTA_SEO_HL_GROUP"),'Y');
+                $this->addUserField($id, 'UF_MAP', Loc::GetMessage("AFFETTA_SEO_HL_MAP"), 'N', 'boolean');
             }
             return true;
         }
@@ -178,8 +178,8 @@ Class affetta_seo extends CModule
 
 
         $APPLICATION->IncludeAdminFile(
-            Loc::getMessage("AFFETTA_SEO_INSTALL_TITLE")." \"".Loc::getMessage("AFFETTA_SEO_MODULE_NAME")."\"",
-            __DIR__."/step.php"
+            Loc::getMessage("AFFETTA_SEO_INSTALL_TITLE") . " \index.php" .Loc::getMessage("AFFETTA_SEO_MODULE_NAME")."\"",
+            __DIR__ . "/step.php"
         );
 
         return false;
@@ -196,8 +196,8 @@ Class affetta_seo extends CModule
         unRegisterModule($this->MODULE_ID);
 
         $APPLICATION->IncludeAdminFile(
-            Loc::getMessage("AFFETTA_SEO_UNINSTALL_TITLE")." \"".Loc::getMessage("AFFETTA_SEO_MODULE_NAME")."\"",
-            __DIR__."/unstep.php"
+            Loc::getMessage("AFFETTA_SEO_UNINSTALL_TITLE") . " \index.php" .Loc::getMessage("AFFETTA_SEO_MODULE_NAME")."\"",
+            __DIR__ . "/unstep.php"
         );
 
         return false;
